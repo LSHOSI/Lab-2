@@ -3,8 +3,11 @@ def main():
     display_main_menu()
     num_list = get_user_input()
     x = calc_average(num_list)
-    print(x)
+    print("Mean = ", x)
     find_min_max(num_list)
+    sort_temperature(num_list)
+    print(sort_temperature(num_list))
+    calc_median_temperature(num_list)
 
 
 def display_main_menu():
@@ -33,8 +36,22 @@ def find_min_max(float_list):
     print("Minimum = ",minimum)
 
 
-#def sort_temperature():
-#def calc_median_temperature():
+def sort_temperature(float_list):
+    float_list.sort()
+    return float_list
+
+
+def calc_median_temperature(float_list):
+    n = len(float_list)
+    if n % 2 == 0:
+        median1 = float_list[n//2]
+        median2 = float_list[n//2-1]
+        median = (median1 + median2)/2
+    else:
+        median = float_list[n//2]
+
+    print("Median is: " + str(median))
+
 
 if __name__ == "__main__":
     main()
